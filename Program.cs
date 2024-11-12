@@ -10,6 +10,8 @@ namespace SI_SH4
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+            app.Urls.Add($"http://*:{port}"); 
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
